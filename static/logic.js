@@ -28,7 +28,7 @@ let baseMaps = {
 let map = L.map('mapid', {
   center: [44.0, -80.0],
   zoom: 2,
-  layers: [light]
+  layers: [dark]
 })
 
 
@@ -43,18 +43,33 @@ let torontoData = "https://raw.githubusercontent.com/meggrooms/Mapping_Earthquak
 
 
 
+
 // Grabbing our GeoJSON data.
 d3.json(torontoData).then(function(data) {
   console.log(data);
   
+
+
+function styleInfo(feature){
+    return {
+      color: "yellow",
+      weight: 0.2
+    }
+  }
+
 // Creating a GeoJSON layer with the retrieved data.
-L.geoJSON(data).addTo(map);
+L.geoJSON(data,{
+style: styleInfo, 
+onEachFeature: function(feature,layer){
+  layer.bindPopup(
+    "Airline: " + feature.properties.airline + "<br>" + 
+    "Destination: " + feature.properties.dst 
+  )
+}
+}).addTo(map);
 });
 
 
 
-
-
-
 // Then we add our 'graymap' tile layer to the map.
-streets.addTo(map);
+// streets.addTo(map);
