@@ -4,12 +4,6 @@ console.log("working");
 // We create the tile layer that will be the background of our map.
 // MAPBOX SYLES: https://docs.mapbox.com/api/maps/styles/#mapbox-styles
 
-let streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v12/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    accessToken: API_KEY
-});
-
 //tile background of map
 //might be v-11
 let satelliteStreets  = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v11/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -18,9 +12,15 @@ let satelliteStreets  = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/sat
     accessToken: API_KEY
 });
 
+let streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v12/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    accessToken: API_KEY
+});
+
 
 // Create a base layer that holds both maps.
-let basemaps = {
+let baseMaps = {
   "Streets": streets,
   "Satellite Streets": satelliteStreets  
 };
@@ -42,13 +42,13 @@ L.control.layers(baseMaps).addTo(map);
 
 
 // Accessing the Toronto neighborhoods GeoJSON URL.
-let torontoHoods = "https://raw.githubusercontent.com/meggrooms/Mapping_Earthquakes/main/torontoNeighborhoods.json";
+let torontoHoods = "https://raw.githubusercontent.com/meggrooms/mapping_earthquakes/Mapping_GeoJSON_Polygons/torontoNeighborhoods.json";
 
 
 //create style for lines
 let myStyle = {
   color: "blue",
-  fillcolor: "yellow",
+  fillColor: 'yellow',
   weight: 1
 };
 
