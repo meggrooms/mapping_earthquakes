@@ -81,19 +81,19 @@ function getColor(magnitude) {
   }
 
 // Creating a GeoJSON layer with the retrieved data.
-  L.geoJSON(data, {
-
-     // This function returns the style data for each of the earthquakes we plot on
-  // the map. We pass the magnitude of the earthquake into a function
-  // to calculate the radius.
-
-    // We turn each feature into a circleMarker on the map.
-
+// Creating a GeoJSON layer with the retrieved data.
+L.geoJSON(data, {
+  // We turn each feature into a circleMarker on the map.
   pointToLayer: function(feature, latlng) {
       console.log(data);
       return L.circleMarker(latlng);
     },
-    style: styleInfo
- 
+  // We set the style for each circleMarker using our styleInfo function.
+style: styleInfo,
+  // We create a popup for each circleMarker to display the magnitude and
+  //  location of the earthquake after the marker has been created and styled.
+  onEachFeature: function(feature, layer) {
+  layer.bindPopup("Magnitude: " + feature.properties.mag + "<br>Location: " + feature.properties.place);
+}
   }).addTo(map);
 });
