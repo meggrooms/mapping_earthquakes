@@ -7,6 +7,9 @@ Tracking this week's earthquake data using JS & API
 _Earthquakes designated by color & magnitude_
 <BR><BR>
 <img src="https://github.com/meggrooms/mapping_earthquakes/blob/main/images/earthquake_map_04.png" width=800 height=500>
-  
+<BR><BR>
+_Magnitude Legend_
+<BR>
+<img src="https://github.com/meggrooms/mapping_earthquakes/blob/main/images/earthquake_map_05.png">
   
   
