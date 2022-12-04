@@ -12,5 +12,8 @@ _Earthquakes designated by color & magnitude_
 _Magnitude Legend_
 <BR>
 <img src="https://github.com/meggrooms/mapping_earthquakes/blob/main/images/earthquake_map_05.png">
-  
+<BR>
+_Map Layers_
+<br>
+  <img src="https://github.com/meggrooms/mapping_earthquakes/blob/main/Earthquake_Challenge/images/Del4_extra_layer.png">
   
